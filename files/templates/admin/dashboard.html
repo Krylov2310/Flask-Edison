@@ -7,7 +7,6 @@
     </h3>
 </center>
 <center>
-    <!--    <a type="button" class="btn  col-auto  bg-info text-white" href="/add_image_feed">{{ context.button_key }}-->
     <a type="button" class="btn  col-auto  bg-info text-white" href="/imagefeed/new">{{ context.button_key }}
     </a>
 </center>
@@ -43,7 +42,6 @@
         <tbody>
         <td>
             <center>
-                <!--                <h6>{{ feed.name }}</h6>-->
                 <a href="/static/media_file/{{feed.image}}">
                     <img src="/static/media_file/{{feed.image}}" alt="Original Image" style="width: 250px; ">
                 </a>
@@ -78,10 +76,7 @@
         </tbody>
     </table>
     <br>
-<!--    <form method="DELETE">-->
         <a type="button" class="btn  col-auto  bg-info text-white" href="/delete/{{ feed.id }}">Удалить</a>
-<!--        <button type="submit">Удалить</button>-->
-<!--    </form>-->
 </div>
 {% endfor %}
 
