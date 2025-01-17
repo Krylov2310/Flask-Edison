@@ -81,84 +81,82 @@
 >#### Шаблоны страниц
 >##### Страницы обработки изображения:
 >__index.html__ – главная страница на которой расположены все главные ссылки на рабочие страници;
-info_user.html – информационная страница;
-dashboard.html - тут можно перейти на экран загрузки, а также для всех уже загруженных картинок текущим пользователем, посмотреть фото и обработать. Либо если уже обработаны, ознакомиться с результатами обработки.
+__info_user.html__ – информационная страница;
+__dashboard.html__ - тут можно перейти на экран загрузки, а также для всех уже загруженных картинок текущим пользователем, посмотреть фото и обработать. Либо если уже обработаны, ознакомиться с результатами обработки.
 
-Страницы регистрации:
-login.html – вход в учётную запись;
-sign_in.html – создание учётной записи;
-account.html – страница выводящая на экран всех зарегистрированных пользователей.
-
-Заключение
-Это приложение предоставляет полнофункциональную платформу для пользователей, которым необходимо выполнять задачи по обнаружению объектов на изображениях. Благодаря использованию готовых моделей глубокого обучения и удобного веб-интерфейса, проект отлично подходит для пользователей без опыта работы с машинным обучением. Одним из вариантом расширения функционала может быть подключение нескольких моделей и предоставление выбора, какую модель использовать.
+>#### Страницы регистрации:
+>__login.html__ – вход в учётную запись;
+__sign_in.html__ – создание учётной записи;
+__account.html__ – страница выводящая на экран всех зарегистрированных пользователей.
+---
+>#### Заключение
+>Это приложение предоставляет полнофункциональную платформу для пользователей, которым необходимо выполнять задачи по обнаружению объектов на изображениях. Благодаря использованию готовых моделей глубокого обучения и удобного веб-интерфейса, проект отлично подходит для пользователей без опыта работы с машинным обучением. Одним из вариантом расширения функционала может быть подключение нескольких моделей и предоставление выбора, какую модель использовать.
 В будущем планируется подключить модель распознавания объектов на видео.
+***
+#### Приложение 1. Пример файловой структуры проекта
+    __Flask-Edison__
+    │   README.md
+    │   requirement.txt
+    │   run.py
+    │   .gitignore
+    │   files
+    │   │   setting.py
+    │   │   routes.py
+    │   │   mobilenet_iter_73000.caffemodel
+    │   │   mobilenet_ssd_deploy.prototxt
+    │   │   mechanics.py
+    │   │   models.py
+    │   │   __init__ .py
+    │   │   instance
+    │   │   │   fl_base.db
+    │   │   views
+    │   │   │   __init__.py
+    │   │   │   dashboard_view.py
+    │   │   │   _feed_view.py
+    │   │   │   storage_view.py
+    │   │   │   user_view.py
+    │   │   templates
+    │   │   │   admin
+    │   │   │   account.html
+    │   │   │   dashboard.html
+    │   │   │   index.html
+    │   │   │   info_user.html
+    │   │   │   login.html
+    │   │   │   sign_in.html
+    │   │   static
+    │   │   │   css
+    │   │   │   media_file
+    │   │   │   │   detect_file
+    │   │   │   storage
+    │   │   │   │   user_img
+    │   │   │   storage_file
 
+***
+##### Приложение 2. Список необходимых библиотек
+    Flask==3.1.0
+    Flask-Admin==2.0.0a3
+    flask-babel==4.0.0
+    Flask-BabelEx==0.9.4
+    Flask-Bcrypt==1.0.1
+    Flask-Bootstrap==3.3.7.1
+    Flask-Login==0.5.0
+    Flask-Mail==0.9.1
+    Flask-Migrate==4.0.7
+    Flask-Minify==0.37
+    flask-msearch==0.2.9.2
+    Flask-SocketIO==5.3.3
+    Flask-SocketIO==5.3.3
+    Flask-SQLAlchemy==3.1.1
+    Flask-WTF==1.2.2
 
+***
+##### Приложение 3. Список обязательных модулей для установки
+    pip install flask
+    pip install flask-sqlalchemy
+    pip install flask-admin
 
-
-
-
-Приложение 1. Пример файловой структуры проекта
-Flask-Edison
-│   READMY.MD
-│   requirement.txt
-│   run.py
-│   .gitignore
-│   files
-│   │   setting.py
-│   │   routes.py
-│   │   mobilenet_iter_73000.caffemodel
-│   │   mobilenet_ssd_deploy.prototxt
-│   │   mechanics.py
-│   │   models.py
-│   │   __init__ .py
-│   │   instance
-│   │   │   fl_base.db
-│   │   views
-│   │   │   __init__.py
-│   │   │   dashboard_view.py
-│   │   │   _feed_view.py
-│   │   │   storage_view.py
-│   │   │   user_view.py
-│   │   templates
-│   │   │   admin
-│   │   │   account.html
-│   │   │   dashboard.html
-│   │   │   index.html
-│   │   │   info_user.html
-│   │   │   login.html
-│   │   │   sign_in.html
-│   │   static
-│   │   │   css
-│   │   │   media_file
-│   │   │   │   detect_file
-│   │   │   storage
-│   │   │   │   user_img
-│   │   │   storage_file
-
-Приложение 2. Список необходимых библиотек
-Flask==3.1.0
-Flask-Admin==2.0.0a3
-flask-babel==4.0.0
-Flask-BabelEx==0.9.4
-Flask-Bcrypt==1.0.1
-Flask-Bootstrap==3.3.7.1
-Flask-Login==0.5.0
-Flask-Mail==0.9.1
-Flask-Migrate==4.0.7
-Flask-Minify==0.37
-flask-msearch==0.2.9.2
-Flask-SocketIO==5.3.3
-Flask-SocketIO==5.3.3
-Flask-SQLAlchemy==3.1.1
-Flask-WTF==1.2.2
-
-Приложение 3. Список обязательных модулей для установки
-pip install flask
-pip install flask-sqlalchemy
-pip install flask-admin
-
-Команда для запуска проекта
-python run.py
+***
+##### Команда для запуска проекта
+>python run.py
 
 [Ссылка на открытие страницы в браузере]http://127.0.0.1:5000/
