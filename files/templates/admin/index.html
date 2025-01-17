@@ -1,0 +1,16 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<div class="container">
+    <h1>{{ context.text }}</h1>
+    <h3>{{ context.message }}</h3>
+    <a type="button" class="btn  col-auto  bg-info text-white" href="/login">Войти</a>
+</div>
+<br>
+<!-- Подвал -->
+<footer>
+    <p class="bg-light text-center py-3" style="background-color: #43f46f"><b>© 2024, Urban University.
+        Все права защищены - index.</b></p>
+</footer>
+{% endblock %}
+

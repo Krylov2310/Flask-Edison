@@ -1,0 +1,94 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<center>
+    <h3>
+        {{ context.text }}<br>{{ context.message }}
+    </h3>
+</center>
+<center>
+    <!--    <a type="button" class="btn  col-auto  bg-info text-white" href="/add_image_feed">{{ context.button_key }}-->
+    <a type="button" class="btn  col-auto  bg-info text-white" href="/imagefeed/new">{{ context.button_key }}
+    </a>
+</center>
+<br>
+{% for feed in image_feeds %}
+<div class="card mb-3">
+    <div class="card-header">
+        <center>
+            <a href="/dashboard/{{ feed.id }}" class="btn btn-warning">Распознать</a>
+        </center>
+    </div>
+    <table>
+        <br>
+        <th>
+            <center>
+                <b>
+                    Ваше изображение:
+                </b>
+            </center>
+        </th>
+        <th>
+            <b>
+                <center>
+                    Распознанное изображение:
+                </center>
+            </b>
+        </th>
+        <th>
+            <b>
+                Классификация объектов на фото:
+            </b>
+        </th>
+        <tbody>
+        <td>
+            <center>
+                <!--                <h6>{{ feed.name }}</h6>-->
+                <a href="/static/media_file/{{feed.image}}">
+                    <img src="/static/media_file/{{feed.image}}" alt="Original Image" style="width: 250px; ">
+                </a>
+            </center>
+        </td>
+        <td>
+            <center>
+                {% if feed.processed_image %}
+                <a href="/static/media_file/{{feed.processed_image}}">
+                    <img src="/static/media_file/{{feed.processed_image}}" alt="Original Image" style="width: 250px; ">
+                </a>
+                {% else %}
+                <h5>Изображение не распознано</h5>
+                {% endif %}
+            </center>
+        </td>
+        <td>
+            <a>
+                <ol>
+                    {% for obj in image_detects %}
+                    {% if feed.id == obj.image_feed %}
+                    <b>
+                        <li>
+                            {{ obj.object_type }} - {{ obj.confidence }}
+                        </li>
+                    </b>
+                    {% endif %}
+                    {% endfor %}
+                </ol>
+            </a>
+        </td>
+        </tbody>
+    </table>
+    <br>
+<!--    <form method="DELETE">-->
+        <a type="button" class="btn  col-auto  bg-info text-white" href="/delete/{{ feed.id }}">Удалить</a>
+<!--        <button type="submit">Удалить</button>-->
+<!--    </form>-->
+</div>
+{% endfor %}
+
+<!-- Подвал -->
+<footer>
+    <p class="bg-light text-center py-3" style="background-color: #43f46f"><b>© 2024, Urban University.
+        Все права защищены - index.</b></p>
+</footer>
+{% endblock %}
+

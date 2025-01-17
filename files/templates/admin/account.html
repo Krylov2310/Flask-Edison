@@ -1,0 +1,99 @@
+{% extends 'admin/index.html' %}
+
+
+{% block body %}
+{% for user in users %}
+<div class="card mb-3">
+    <div class="card-header">
+    </div>
+    <table>
+        <br>
+        <th>
+            <center>
+                <b>
+                    ID:
+                </b>
+            </center>
+        </th>
+        <th>
+            <center>
+                <b>
+                    Роль:
+                </b>
+            </center>
+        </th>
+        <th>
+            <center>
+                <b>
+                    Логин:
+                </b>
+            </center>
+        </th>
+        <th>
+            <center>
+                <b>
+                    Имя:
+                </b>
+            </center>
+        </th>
+        <th>
+            <center>
+                <b>
+                    Фамилия:
+                </b>
+            </center>
+        </th>
+        <th>
+            <center>
+                <b>
+                    Аватар:
+                </b>
+            </center>
+        </th>
+        <tbody>
+        <td>
+            <center>
+                <h5>{{ user.id }}</h5>
+            </center>
+        </td>
+        <td>
+            <center>
+                <b><h5>{{ user.role}}</h5></b>
+            </center>
+        </td>
+        <td>
+            <center>
+                <b><h5>{{ user.username }}</h5></b>
+            </center>
+        </td>
+        <td>
+            <center>
+                <b><h5>{{ user.last_name }}</h5></b>
+            </center>
+        </td>
+        <td>
+            <center>
+                <b><h5>{{ user.first_name }}</h5></b>
+            </center>
+        </td>
+        <td>
+            <center>
+                <a href="/static/storage/user_img/{{user.image_user}}">
+                    <img src="/static/storage/user_img/{{user.image_user}}" width="100">
+                </a>
+            </center>
+        </td>
+        </tbody>
+    </table>
+</div>
+{% endfor %}
+<br>
+
+<!-- Подвал -->
+<footer>
+    <p class="bg-light text-center py-3" style="background-color: #43f46f"><b>© 2024, Urban University. Все права
+        защищены.</b></p>
+</footer>
+{% endblock %}
+
+
