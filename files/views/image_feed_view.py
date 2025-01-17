@@ -41,16 +41,10 @@ class ImageFeedView(ModelView):
             return ''
 
         url = url_for('static', filename=os.path.join('media_file/', model.image))  # Создаем URL
-        # url2 = url_for('static', filename=os.path.join('media_file/', model.processed_image))  # Создаем URL
 
         # Проверяем формат файла
         if model.type in ['jpg', 'jpeg', 'png', 'svg', 'gif', 'PNG']:
             return Markup(f'<img src="{url}" width="100">')
-
-        #     # Проверяем формат файла
-        # if model.type in ['jpg', 'jpeg', 'png', 'svg', 'gif', 'PNG']:
-        #     return Markup(f'<img src="{url2}" width="100">')
-
 
     # Передаем функцию прямо в строку
     column_formatters = {'image': _list_thumbnail}
