@@ -48,18 +48,6 @@ class MyAccountView(BaseView):
         return self.render('admin/account.html', users=users)
 
 
-# class MyImageFeedView(BaseView):
-#     @expose('/')
-#     def image_feed(self):
-#         return self.render('admin/add_image_feed.html')
-
-
-# class MyDetectObjectView(BaseView):
-#     @expose('/')
-#     def detect_object(self):
-#         return self.render('admin/detect_object.html')
-
-
 # Страница интелектуального распознавания
 class MyDashboardView(BaseView):
     @expose('/')
@@ -72,7 +60,6 @@ class MyDashboardView(BaseView):
             'message': 'Все изображения.',
             'button_key': 'Добавить изображение',
         }
-        # print(image_detects)
         return self.render('admin/dashboard.html', image_feeds=image_feeds, image_detects=image_detects, context=context)
 
 
