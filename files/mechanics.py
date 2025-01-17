@@ -21,9 +21,7 @@ def process_image(id):
     try:
         # Передаем на обработку загруженное изображение
         image_feeds = ImageFeed.query.get_or_404(id)
-        # image_feed = STORAGE2 + image_feeds.image  # Создаем путь к новому файлу
         image_path = STORAGE + image_feeds.image  # Определяем полный путь к файлу
-        # print('image_path', image_path)
 
         model_path = 'files/mobilenet_iter_73000.caffemodel'
         config_path = 'files/mobilenet_ssd_deploy.prototxt'
@@ -80,7 +78,6 @@ def process_image(id):
         if result:
             # Сохраняем новый файл
             output_path = img_feed
-            # print('output_path = ', output_path)
             with open(output_path, 'wb') as file:
                 file.write(encoded_img)
 
