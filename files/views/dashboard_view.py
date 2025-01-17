@@ -69,7 +69,6 @@ class DasboardView(ModelView):
 
             if storage_file is not None:
                 hash = random.getrandbits(128)  # Генерирует новое имя
-                # hash = random.getrandbits(28)  # Генерирует новое имя
                 ext = storage_file.filename.split('.')[-1]  # Определяет расширение файла
                 print('ext', ext)
                 new_file_name = f'{hash}.{ext}'  # Собираем новое имя файла
